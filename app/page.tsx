@@ -222,7 +222,7 @@ export default function Portfolio() {
       about: {
         title: "Sobre Mim",
         text1:
-          "Sou Gio, desenvolvedor e designer apaixonado por criar experiências digitais únicas e memoráveis. Especializado em identidade visual e desenvolvimento front-end, combino criatividade e técnica para transformar ideias em realidade digital.",
+          "Sou Gio, desenvolvedora e designer apaixonada por criar experiências digitais únicas e memoráveis. Especializada em identidade visual e desenvolvimento front-end, combino criatividade e técnica para transformar ideias em realidade digital.",
         text2:
           "Minha abordagem é sempre centrada no usuário, buscando soluções que não apenas funcionem perfeitamente, mas que também encantem e surpreendam com design delicado e sofisticado.",
         projects: "Projetos Concluídos",
