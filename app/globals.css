@@ -1,0 +1,362 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" fill="%23a855f7" opacity="0.8"/><circle cx="12" cy="12" r="3" fill="%23ffffff"/></svg>'),
+      auto;
+  }
+
+  /* Custom cursor for interactive elements */
+  button,
+  a,
+  [role="button"] {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="%23c084fc" opacity="0.9"/><circle cx="12" cy="12" r="4" fill="%23ffffff"/><circle cx="12" cy="12" r="2" fill="%23a855f7"/></svg>'),
+      pointer;
+  }
+
+  /* Custom cursor for text selection */
+  input,
+  textarea,
+  [contenteditable] {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="11" y="4" width="2" height="16" fill="%23a855f7" opacity="0.8"/><rect x="8" y="4" width="8" height="2" fill="%23a855f7" opacity="0.6"/><rect x="8" y="18" width="8" height="2" fill="%23a855f7" opacity="0.6"/></svg>'),
+      text;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-purple-300 dark:bg-purple-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-purple-400 dark:bg-purple-500;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom font classes */
+.font-manrope {
+  font-family: var(--font-manrope);
+  font-feature-settings: "liga" 1, "kern" 1;
+  text-rendering: optimizeLegibility;
+}
+
+.font-poppins {
+  font-family: var(--font-poppins);
+  font-feature-settings: "liga" 1, "kern" 1;
+  text-rendering: optimizeLegibility;
+}
+
+.font-inter {
+  font-family: var(--font-inter);
+  font-feature-settings: "liga" 1, "kern" 1;
+  text-rendering: optimizeLegibility;
+}
+
+/* Glassmorphism effect */
+.glass {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(209, 213, 219, 0.3);
+}
+
+.dark .glass {
+  background-color: rgba(17, 24, 39, 0.75);
+  border: 1px solid rgba(75, 85, 99, 0.3);
+}
+
+/* Animation utilities */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(147, 56, 242, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(147, 56, 242, 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Parallax smooth animations */
+@keyframes parallax-float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(240deg);
+  }
+}
+
+.animate-parallax-float {
+  animation: parallax-float 15s ease-in-out infinite;
+}
+
+/* Text gradient utilities */
+.text-gradient {
+  background: linear-gradient(135deg, #9538f2, #b679f2, #d3b3f2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom button hover effects */
+.btn-hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Loading animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.dark .shimmer {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200px 100%;
+}
+
+/* Enhanced parallax effects */
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateX(10px) translateY(-15px) rotate(90deg);
+  }
+  50% {
+    transform: translateX(-5px) translateY(-25px) rotate(180deg);
+  }
+  75% {
+    transform: translateX(-15px) translateY(-10px) rotate(270deg);
+  }
+}
+
+.animate-drift {
+  animation: drift 20s ease-in-out infinite;
+}
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: scale(1.1) rotate(180deg);
+  }
+}
+
+.animate-morph {
+  animation: morph 12s ease-in-out infinite;
+}
+
+/* Typography enhancements for delicate fonts */
+.font-extralight {
+  font-weight: 200;
+  letter-spacing: 0.025em;
+}
+
+.font-thin {
+  font-weight: 100;
+  letter-spacing: 0.05em;
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Enhanced focus states */
+.focus-visible:focus-visible {
+  outline: 2px solid #9538f2;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Custom selection colors */
+::selection {
+  background-color: rgba(147, 56, 242, 0.2);
+  color: inherit;
+}
+
+::-moz-selection {
+  background-color: rgba(147, 56, 242, 0.2);
+  color: inherit;
+}
+
+/* Delicate text effects */
+@keyframes text-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(147, 56, 242, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: text-shimmer 3s ease-in-out infinite;
+}
+
+/* Refined hover states */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+/* Floating icons animation */
+@keyframes float-design {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(90deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(180deg);
+  }
+  75% {
+    transform: translateY(-30px) rotate(270deg);
+  }
+}
+
+.animate-float-design {
+  animation: float-design 15s ease-in-out infinite;
+}
+
+/* Custom cursor animations */
+@keyframes cursor-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.cursor-pulse {
+  animation: cursor-pulse 2s ease-in-out infinite;
+}
